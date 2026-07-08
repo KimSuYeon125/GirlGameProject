@@ -91,6 +91,8 @@ label scene_02:
     
     hasoo '"..."'
 
+    jump scene_03
+
 label scene_03:
 
     "-밥상-"
