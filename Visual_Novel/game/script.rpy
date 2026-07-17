@@ -1,7 +1,24 @@
-﻿# 이 파일에 게임 스크립트를 입력합니다.
+# 이 파일에 게임 스크립트를 입력합니다.
 
 # image 문을 사용해 이미지를 정의합니다.
 # image eileen happy = "eileen_happy.png"
+
+image hasoo normal = Transform("test_hasoo.png", ysize=1050, fit="contain", yoffset=-370)
+image miyoung normal = Transform("test_miyoung.png", ysize=1050, fit="contain", yoffset=-370)
+image jinhyeok normal = Transform("test_jinhyeok.png", ysize=1050, fit="contain", yoffset=-370)
+image wooseok normal = Transform("test_wooseok.png", ysize=1050, fit="contain", yoffset=-370)
+
+transform portrait_solo:
+    xalign 0.5
+    yalign 1.0
+
+transform portrait_left:
+    xalign 0.32
+    yalign 1.0
+
+transform portrait_right:
+    xalign 0.68
+    yalign 1.0
 
 # 게임에서 사용할 캐릭터를 정의합니다.
 define hasoo = Character('하수', color="#b86d54")
@@ -16,17 +33,21 @@ default handscarf = 0
 
 # 여기에서부터 게임이 시작합니다.
 label start:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
     jump scene_01
 
 label scene_01:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
     "-프롤로그-"
 
     # [배경] 1990년 겨울. 소도시. 낮인데 하늘이 낮고 무겁다.
     # (sfx) 빗소리가 처마를 두드렸다.
-
-    "나는 한 손에 우산, 한 손에 도시락통을 들고 골목 끝에 서 있다. 오늘도 어김없이 우석이네로 향하는 길이다."
-
-    "골목 끝. 낮은 처마들이 이어진 좁은 길. 우석이네 현관이 저 끝에 보인다."
 
     "나는 한 손에 우산, 한 손에 도시락통을 들고 골목 끝에 서 있다. 오늘도 어김없이 우석이네로 향하는 길이다."
 
@@ -54,6 +75,8 @@ label scene_01:
 
     "부엌도 화장실도 집 안의 불이 전부 켜져 있지만 사람의 기척은 없다."
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"…우석아, 있어?"'
 
     "조심스럽게 안쪽으로 걸음을 옮기자 안방 쪽에서 색색거리는 숨소리가 들려왔다."
@@ -71,11 +94,19 @@ label scene_01:
     jump scene_02
 
 label scene_02:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     # [배경] 안방
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"우석아."'
     
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '(잠결에 뒤척이며) "으음... 5분만 더."'
 
     hasoo '"밥 식는다."'
@@ -99,6 +130,10 @@ label scene_02:
     jump scene_03
 
 label scene_03:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-밥상-"
 
@@ -110,6 +145,8 @@ label scene_03:
 
     "낡은 형광등 아래에서, 밥상 위 김이 희미하게 올라온다. 창밖에서 빗방울이 유리창을 일정하게 두드리는 소리만이 조용히 이어졌다."
 
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '(밥을 크게 한 술 떠 입 안으로 밀어넣으며)"맛있다."' # 임시 수정 - (먹으면서 -> 밥을 크게 한 술 떠 입 안으로 밀어넣으며)
 
     "나물무침을 먹다가 멍하니 창밖을 봤다. 빗줄기가 유리를 타고 흘러내리고 있었다."
@@ -126,6 +163,8 @@ label scene_03:
 
     wooseok '"맛있어?"'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"뭐?"'
 
     wooseok '"머리카락. 맛있냐고."'
@@ -144,11 +183,19 @@ label scene_03:
     jump scene_04
 
 label scene_04:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-분홍 봉투(회상)-"
 
+    show miyoung normal at portrait_right
+    with Dissolve(0.5)
     miyoung '"계속 같이 있는 게 당연할 리가, 없지..."'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"뭐?"'
 
     miyoung '"이제 슬슬, 변화가 필요하겠다는 뜻이야."'
@@ -184,13 +231,21 @@ label scene_04:
     jump scene_05
 
 label scene_05:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-발견-"
 
     # [배경] 그날 저녁. 우석이네 부엌. 밥상이 끝난 뒤
 
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '"설거지는 내가 할게. 너는 방에 들어가있어."'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"내가 해도—"'
 
     wooseok '"들어가있으라고."'
@@ -220,6 +275,10 @@ label scene_05:
     jump scene_06
 
 label scene_06:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-이불-"
 
@@ -235,10 +294,14 @@ label scene_06:
 
     "우석이 벽에 기댄 채 앉아서 나를 보고 있다." # 임시 수정(줄바꿈)
 
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '"깼어?"'
 
     "크게 반응하는 것도 호들갑 같아서 그만뒀다."
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"어어... 미안해. 잠들어버려서."'
 
     wooseok '"아냐. 자는 얼굴 보는 것도 꽤 재밌더라."'
@@ -366,6 +429,10 @@ label scene_06:
     jump scene_07
 
 label scene_07:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-빗속-"
 
@@ -396,6 +463,10 @@ label scene_07:
 ###
 
 label scene_08:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-다음 날 아침-"
 
@@ -415,6 +486,8 @@ label scene_08:
 
     "나는 우석이에게서 가족을 빼앗은 걸까. 하지만 더 이상 속없는 표정을 가장해 우석의 옆에 있고 싶지는 않아."
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"마음이 너무 복잡하네... 이러면 안 되는데."'
 
     "ー기분 전환이라도 해야 할 것 같았다."
@@ -422,6 +495,10 @@ label scene_08:
     jump scene_09
 
 label scene_09:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "-카페-"
 
@@ -439,6 +516,8 @@ label scene_09:
 
     "카페 안에 손님은 나와 남자, 둘뿐."
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"...!"'
 
     "눈이 마주쳤다."
@@ -452,12 +531,18 @@ label scene_09:
 
 ##### 손수건을 건넨다 #####
 label scene_09_jinhyeok:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
     "남자의 눈이 보름달처럼 동그래졌다. 말을 잃고 한참동안 쳐다보더니 손수건을 받는다."
 
     "그는 손수건을 건네받자마자 담배불을 담뱃재에 비벼 껐다."
 
     "물을 맞은 남자" '"하하... 이것 참 민망하네. 고마워요."'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"피셔도 돼요."'
 
     "물을 맞은 남자" '"담배 안 피잖아요. 아닌가?"'
@@ -472,6 +557,8 @@ label scene_09_jinhyeok:
 
     "이런 때 수작질이라니. 생각해보면 대낮에 한적한 카페에서 여자한테 물싸대기나 맞는 남자가 괜찮은 사람일 리가 없는데."
 
+    show jinhyeok normal at portrait_right
+    with Dissolve(0.5)
     jinhyeok '"학교 학생 중에요, 나 같은 사람 본 기억 전혀 없어요?"'
 
     hasoo '"...혹시 은성여고 나오셨어요?"'
@@ -537,15 +624,23 @@ label scene_09_jinhyeok:
 ##### 눈을 피한다 #####
 
 label scene_09_jinhyeok_nope:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
     
     "괜히 관여하지 않는 게 좋겠다고 생각했다."
 
     "그러나 좁은 가게 안에 있는 사람은 나와 남자, 둘뿐이다. 곧 두 눈이 마주친다."
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"헉."'
 
     "당황해서 목소리가 새어나왔다. 남자도 마찬가지로 당황했는지 갑자기 콜록거리기 시작했다."
 
+    show jinhyeok normal at portrait_right
+    with Dissolve(0.5)
     jinhyeok '"커헉, 크흑 큽, 크흡..."'
 
     "남자는 담뱃불을 빨리 비벼 껐다. 키가 크고 건장한 체격의 그가 하수 앞까지 터벅터벅 다가온다."
@@ -597,12 +692,18 @@ label scene_09_jinhyeok_nope:
     jump scene_10
 
 label scene_10:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
     # [배경] 하수의 집. 현관.
 
     # (sfx) 문 열리는 소리
 
     "집에 돌아오자 안심이 돼서 몸이 풀린다."
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"진짜 기진맥진해..."'
 
     "그러나 나는 곧 신발장 앞 거울이 눈에 들어오는 순간 돌처럼 굳고 말았다. 하얀 브라가 물에 젖어 비치고 있었다."
@@ -618,13 +719,21 @@ label scene_10:
     jump scene_11
 
 label scene_11:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     # [배경] 하수의 방. 오후. 전화벨이 울린다.
 
     # (sfx) 전화벨 소리
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"여보세요."'
 
+    show miyoung normal at portrait_right
+    with Dissolve(0.5)
     miyoung '"여보세요, 하수 언니네 댁 맞으신가요?"'
 
     hasoo '"응, 나야. 미영이니?"'
@@ -651,6 +760,10 @@ label scene_11:
                     jump scene_15 # ◆ Scene 12 — 거절 / 우석의 집에 간다 - 부분 부탁드려요
                 
 label scene_12:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     # [배경] 공원 앞. 겨울 오후. 하수가 먼저 나와 기다리고 있었다.
 
@@ -658,6 +771,8 @@ label scene_12:
 
     # (sfx) 발소리
 
+    show miyoung normal at portrait_right
+    with Dissolve(0.5)
     miyoung '"언니!"'
 
     "발소리의 주인은, 미영이었다."
@@ -666,6 +781,8 @@ label scene_12:
 
     "브라운 체크 미니스커트와 보라색 타이즈가 은은한 대비를 이루고, 짧은 블랙 코트와 롱부츠가 전체를 간결하게 정리하고 있다."
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"미영이 너 귀엽게 꾸미고 왔네?"'
 
     miyoung '"언니랑 나가는 날이니까."'
@@ -752,16 +869,28 @@ label scene_12:
 
     "안에 들어서자마자 카운터 쪽 창가 자리에 앉은 남자가 눈에 들어왔다. 하필이면."
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"어, 왔어?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"...여기 자주 와요?"'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"단골이지."'
 
     "대화의 틈을 비집고 미영이 내 소매를 슬쩍 잡아당긴다."
 
     miyoung '"...언니, 저 사람 누구야?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"나도 잘 몰라."'
 
     miyoung '"이름도 몰라?"'
@@ -770,6 +899,9 @@ label scene_12:
 
     "미영이 남자를 훑어보는 눈빛이 날카로워진다."
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"근데 뭐 마실 거야? 여기 초콜릿 파르페 오늘부터 시즌 메뉴 나왔던데."'
 
     "미영이가 가고 싶다던 카페랑 같은 메뉴다. 나는 뭐라고 대답해야 할지 몰라서 잠깐 입을 다물었다."
@@ -784,10 +916,19 @@ label scene_12:
 
     jinhyeok '"친구야?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"동생이요."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"호오, 얼굴은 안 닮았네."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"친자매가 아니거든요."'
 
     miyoung '"친구에요. 우리는."'
@@ -798,6 +939,9 @@ label scene_12:
 
     hasoo '"맞아요. 소중한 친구에요."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"그렇구나."'
 
     "남자는 별로 개의치 않는 얼굴로 커피잔을 들었다."
@@ -806,6 +950,9 @@ label scene_12:
 
     miyoung '"언니."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"응?"'
 
     "미영이 내 쪽으로 몸을 살짝 기울이며 팔짱을 낀다."
@@ -828,6 +975,9 @@ label scene_12:
 
     hasoo '"후후, 어리광쟁이네, 미영이는."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"사이 좋네."'
 
     "남자의 목소리에 미영이 고개를 들었다. 두 사람의 시선이 부딪치면서 미영의 팔에 힘이 들어간다."
@@ -844,12 +994,18 @@ label scene_12:
 
     miyoung '"언니."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"응."'
 
     miyoung '"나 이런 사람 별로야."'
 
     hasoo '"...대놓고 말하면 어떡해."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"괜찮아. 나, 직접적인 거 좋아하거든."'
 
     "그때, 묵직하게 가라앉은 공기를 가르며 직원의 말이 불쑥 끼어들었다."
@@ -868,6 +1024,9 @@ label scene_12:
 
     "미영이 눈이 커졌다. 아까까지의 날을 세운 얼굴은 온데간데없이, 초콜릿 파르페 앞에서 완전히 무너진 표정이다."
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"맛있겠지?"'
 
     miyoung '"응...! 언니도 먹어봐, 빨리."'
@@ -888,22 +1047,40 @@ label scene_12:
 
     "미영이 만족스럽게 웃으며 자기 몫을 떠먹었다. 시선을 느껴 고개를 들자, 남자가 이쪽을 보고 있었다."
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"잘 지냈어?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"...뜬금없네요."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"그 날 이후로 처음 보잖아."'
 
     "말을 내뱉고 나서, 괜히 여지를 준 것 같아 조금 후회했다. 미영이 숟가락을 내려놓는 소리가 가게에 크게 울린다."
 
     miyoung '"언니, 이 사람이랑 무슨 사이야?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"아니, 그냥..."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"아는 사이지."'
 
     miyoung '"...언니는."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"응?"'
 
     miyoung '"이런 사람이 말 걸때마다 항상 이렇게 대답을 잘 해줘?"'
@@ -998,9 +1175,15 @@ label scene_12:
 
     # — 암전 —
 label scene_13:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     # (sfx) 터벅터벅 / 집 → 거리 → 카페 장면 전환 / 딸랑 소리
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"...임시휴무."'
 
     hasoo '"가는 날이 장날이라더니."'
@@ -1015,6 +1198,9 @@ label scene_13:
 
     hasoo "'그리고 그 소란의 한가운데에는—'"
 
+    show hasoo normal at portrait_left
+    show jinhyeok normal at portrait_right
+    with Dissolve(0.5)
     jinhyeok '"하하, 잘 타는데?"'
 
     hasoo "'아이들 사이에서 그네를 밀어주는 그 남자가 있었다.'"
@@ -1048,11 +1234,19 @@ label scene_13:
     jump scene_14
 
 label scene_14:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "아이" '"더! 더 세게!"'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"이만하면 충분해."'
 
+    show jinhyeok normal at portrait_right
+    with Dissolve(0.5)
     jinhyeok '"생각보다 잘 미네."'
 
     hasoo '"내가 잘 민다고 했잖아요."'
@@ -1254,15 +1448,23 @@ label scene_14:
             jump jinhyeok_question_interrupted
 
 label jinhyeok_question_interrupted:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     # [커서가 선택지 쪽으로 향하는 순간]
 
     # (sfx) 등 뒤에서 발소리
 
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '"하수야."'
 
     # (선택지 사라진다)
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo "'심장이 내려앉는 소리가 들렸다.'"
 
     wooseok '"하수야, 잠깐—"'
@@ -1271,8 +1473,14 @@ label jinhyeok_question_interrupted:
 
     "내 반응을 눈치챈 건지, 류진혁이 나를 감싸듯 한 발 앞으로 나섰다. 나는 얼떨결에 그의 등 뒤로 감싸지듯 물러섰다."
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"우리, 지금 중요한 얘기중이었는데."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"..."'
 
     hasoo '"...응. 중요한 얘기중이었으니까."'
@@ -1287,12 +1495,21 @@ label jinhyeok_question_interrupted:
 
     # (sfx) 류진혁 자전거 벨소리
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"이하수! 데려다줄게."'
 
     "어느새 그는 자전거를 끌고 와 있었다. 유난히 눈에 들어오는, 경쾌한 주황색."
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo "'빛을 받아 반짝이는 그 색은 답답하게 막혀 있던 공기를 단번에 밀어내는 것처럼 가볍고 선명했다.'"
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"빨리 와."'
 
     "그 말에 떠밀리듯 안장에 올라탄다. 주황색 프레임이 시야 한켠에서 흔들린다."
@@ -1315,36 +1532,66 @@ label jinhyeok_question_interrupted:
 
     "공원이 보이지 않을 만큼 멀어질 때쯤 그가 내게 물었다. 그제야, 조금 정신이 들었다."
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"진짜 집까지 데려다줄 필요 없어. 여기서 내려주면 혼자 갈게."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"발 다쳤잖아. 걸어갈 수는 있고?"'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"……"'
 
     "자전거가 멈춘다. 진혁은 아무 말도 하지 않은 채, 내가 말을 꺼내기를 끈기있게 기다린다."
 
     hasoo '"원래 그렇게 누구한테나 상냥해?"'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"너무 깊게 생각하지 마."'
 
     jinhyeok '"난 그냥, 내가 하고 싶은 대로 해. 그러니까— 너도 네가 하고 싶은 대로 하면 돼."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"…장미마트에서 두 블록만 더 가면 우리 집이야. 거기까지 데려다줘."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"알았어."'
 
     "집 앞에 도착하자, 자전거가 천천히 멈춘다. 나는 조심스럽게 내려섰다."
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"…고마워."'
 
     "달아오른 뺨 위로, 저녁바람이 스쳐 지나간다. 데워졌던 열기가 식어간다."
 
     "진혁은 가볍게 손을 흔들며 그대로 돌아서서 걸어가려다가— 갑작스레 뒤를 돌아봤다."
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"아까 말인데."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"어?"'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"뒤돌아봐줬으면 좋겠다고 했잖아."'
 
     jinhyeok '"생각해 보니까— 내가 앞에 서서, 먼저 돌아보는 것도 나쁘지 않겠더라."'
@@ -1353,8 +1600,14 @@ label jinhyeok_question_interrupted:
 
     jinhyeok '"…아, 진짜. 나답지 않게 무슨 말을 하는 건지. 그냥, 그렇다고."'
 
+    hide jinhyeok
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"…바보."'
 
+    hide hasoo
+    show jinhyeok normal at portrait_left
+    with Dissolve(0.5)
     jinhyeok '"그래. 나 바보다."'
 
     "점처럼 작아져 가는 그의 등을 바라보다가, 문득 생각했다."
@@ -1363,6 +1616,9 @@ label jinhyeok_question_interrupted:
 
     if handscarf == 1:
 
+        hide jinhyeok
+        show hasoo normal at portrait_left
+        with Dissolve(0.5)
         hasoo '"…그러고 보니, 우산. 돌려주지도 못했네."'
 
     else:
@@ -1374,6 +1630,10 @@ label jinhyeok_question_interrupted:
     return
 
 label scene_15:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
     "바람 한 점 없이 조용히 가라앉은 골목에 기울어진 그림자만이 낮게 깔려 있다."
 
@@ -1385,6 +1645,8 @@ label scene_15:
 
     "서늘한 기운이 폐 안으로 스며들자, 머리가 조금 식은 것같은 느낌이 들었다."
 
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
     hasoo '"...좋아."'
 
     "망설이던 손끝이 결국 버튼 위에 닿았다. 짧게 숨을 들이마신 뒤, 그대로 누르자ー"
@@ -1517,6 +1779,9 @@ label scene_15:
 
     "짓물러진 얼굴이었다. 울었다는 걸 숨길 생각조차 없는 천진한 얼굴이, 나를 보는 순간 순식간에 당혹스러운 얼굴로 바뀌었다."
 
+    show hasoo normal at portrait_left
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '"왜..."'
 
     "그 한 마디가 채 끝나기도 전에, 우석의 얼굴 위로 여러 감정이 교차했다. 당혹감이, 무언가를 감추려는 긴장이, 그리고 분노인지 슬픔인지 알 수 없는 것들이— 마치 파도가 밀려왔다 물러가는 것처럼."
@@ -1562,9 +1827,17 @@ label scene_15:
             jump wooseok_beach_common
 
 label wooseok_beach_common:
+    hide hasoo
+    hide miyoung
+    hide jinhyeok
+    hide wooseok
 
+    show wooseok normal at portrait_right
+    with Dissolve(0.5)
     wooseok '"...어떻게 알고 왔어. 여기는."'
 
+    show hasoo normal at portrait_left
+    with Dissolve(0.5)
     hasoo '"그냥 알았어."'
 
     wooseok '"그냥?"'
@@ -1840,6 +2113,10 @@ label wooseok_beach_common:
     "정말 이상한 하루였다. 아침에 우석의 집 앞에 서 있던 것도, 아무 생각 없이 열차에 몸을 실었던 것도, 바다에서 우석을 찾아낸 것도, 그리고 지금, 이렇게 혼자 돌아가고 있는 것도—"
 
     "모든 영상들이 하나로 이어지지 않는 장면처럼 머릿속에 흩어져 있다."
+
+    hide wooseok
+    show hasoo normal at portrait_solo
+    with Dissolve(0.5)
 
     hasoo "'나를 여자로 보지 않았던 적이 한 번도 없다고...'"
 
